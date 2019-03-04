@@ -1,0 +1,29 @@
+_csrf='b9717b44-f7ba-41df-953c-2676466e59b2'
+
+1、GET   https://fruits.rubikstack.com/w/login   找到这个网页的登录框   200 
+
+2、GET   https://fruits.rubikstack.com/login   获取了  JSESSIONID-FRUITS=80BB542B218250DC6767611FD462E56F  302 
+
+3【重定向】、GET   https://woauth2.rubikstack.com/oauth/authorize?client_id=7077ec00eb6e4d2db9547094cb651ed4&mdid=2eebbccd66d811e7af980242af104d37&page=small&redirect_uri=https://fruits.rubikstack.com/login&response_type=code&state=niHCUa    
+	获取了  JSESSIONID-FRUITS=80BB542B218250DC6767611FD462E56F
+
+4【重定向】、POST   https://woauth2.rubikstack.com/login
+	  Response header:
+https://woauth2.rubikstack.com/login/success?redirect_url=http%3A%2F%2Fwoauth2.rubikstack.com%2Foauth%2Fauthorize%3Fclient_id%3D7077ec00eb6e4d2db9547094cb651ed4%26mdid%3D2eebbccd66d811e7af980242af104d37%26page%3Dsmall%26redirect_uri%3Dhttps%3A%2F%2Ffruits.rubikstack.com%2Flogin%26response_type%3Dcode%26state%3DyVPkCM
+
+  传参：  _csrf: b9717b44-f7ba-41df-953c-2676466e59b2
+	  _csrf_header: X-CSRF-TOKEN
+	  username: 0449
+	  mdid: 2eebbccd66d811e7af980242af104d37
+	  password: 000000
+
+5【重定向】、GET   https://woauth2.rubikstack.com/oauth/authorize?client_id=7077ec00eb6e4d2db9547094cb651ed4&mdid=2eebbccd66d811e7af980242af104d37&page=small&redirect_uri=https://fruits.rubikstack.com/login&response_type=code&state=yVPkCM
+   传参：  client_id: 7077ec00eb6e4d2db9547094cb651ed4
+	   mdid: 2eebbccd66d811e7af980242af104d37
+	   page: small
+	   redirect_uri: https://fruits.rubikstack.com/login
+	   response_type: code
+	   state: yVPkCM
+6、GET   https://woauth2.rubikstack.com/login/success?redirect_url=https%3A%2F%2Ffruits.rubikstack.com%2Flogin%3Fcode%3DVfe87x%26state%3DyVPkCM
+   传参： https://fruits.rubikstack.com/login?code=Vfe87x&state=yVPkCM
+
